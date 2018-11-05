@@ -1,29 +1,32 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Collapse, Navbar, NavbarToggler, NavbarBrand, Nav,
 } from 'reactstrap';
-import NavbarItem from './NavbarItem';
+import NavbarItem from './NavbarItem.jsx';
 
 export default class CustomNavbar extends React.Component {
   constructor(props) {
     super(props);
-
-    this.toggle = this.toggle.bind(this);
     this.state = {
       isOpen: false,
     };
+    this.toggle = this.toggle.bind(this);
   }
 
   toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen,
-    });
+    this.setState(prevState => ({
+      isOpen: !prevState.isOpen,
+    }));
   }
 
   render() {
+    // Destructuring:
     const { title, categories } = this.props;
+    const { isOpen } = this.state;
 
-    const navbar_items = categories.map(category => (
+    // Create a navbar-item per each category that exists.
+    const navbarItems = categories.map(category => (
       <NavbarItem category={category.category} key={category.id} />
     ));
 
@@ -32,9 +35,9 @@ export default class CustomNavbar extends React.Component {
         <Navbar color="light" light expand="md">
           <NavbarBrand href="/">{title}</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
+          <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              {navbar_items}
+              {navbarItems}
             </Nav>
           </Collapse>
         </Navbar>
@@ -42,3 +45,7 @@ export default class CustomNavbar extends React.Component {
     );
   }
 }
+CustomNavbar.propTypes = {
+  title: PropTypes.string.isRequired,
+  categories: PropTypes.arrayOf(PropTypes.object).isRequired,
+};

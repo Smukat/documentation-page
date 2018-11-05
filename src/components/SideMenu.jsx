@@ -8,10 +8,10 @@ const SideMenu = ({ categories }) => {
   ));
 
   return (
-    <div>
+    <aside>
       <ListGroup>{list_categories}</ListGroup>
       <p />
-    </div>
+    </aside>
   );
 };
 export default SideMenu;

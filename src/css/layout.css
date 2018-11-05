@@ -7,6 +7,18 @@ CSS Grid layout for wider screens, when browser supports grid:
 			max-width: none;
 			display: grid
 		}
+
+	/* App 
+	 **********************/
+	.main-wrapper {
+		display: grid;
+		grid-template-columns: 15em 1fr; 
+	}
+	}
+	/* Article 
+	 **********************/
+	.article {
+		margin-left: 1em;
 	}
 
 	

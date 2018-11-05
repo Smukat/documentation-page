@@ -20,8 +20,32 @@ General styles
 	 font-weight: 700;
  }
 
+ /* Article 
+ **********************/
+ .article {
+	 padding: 1em;
+	 margin-left: 1em;
+ }
+ .article-title {
+	padding-bottom: 0.1em;
+	 border-bottom: 2px solid #52a4c7;
+ }
+ .article-subtitle {
+	font-size: 1.3rem;
+ }
+.article-parameters {
+	font-size: 1rem;
+	color: #3d7891;
+}
+.btn-learn-more {
+	color: #52a4c7;
+
+}
+
  /* Title of Component
  **********************/
+
+
 
 
 
