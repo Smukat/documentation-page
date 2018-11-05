@@ -1,0 +1,20 @@
+/*--------------------------------------------------------------
+CSS Grid layout for wider screens, when browser supports grid:
+--------------------------------------------------------------*/
+@supports (grid-area: auto) {
+	@media screen and (min-width: 50em) {
+		.site {
+			max-width: none;
+			display: grid
+		}
+	}
+
+	
+	/* Bigger Screens */
+
+	@media screen and (min-width: 65em) {
+		.site {
+			/*GRID*/
+		}
+	}
+}

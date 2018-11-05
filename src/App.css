@@ -1,32 +1,36 @@
-.App {
-  text-align: center;
-}
+/* Components */
+@import url("css/reset.css");
+@import url("css/accessibility.css");
+@import url("css/layout.css");
+@import url("css/typography.css");
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
+/*--------------------------------------------------------------
+General styles
+--------------------------------------------------------------*/
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
+/* SideMenu 
+ **********************/
+ a.list-group-item-action.list-group-item:hover,
+ a.list-group-item-action.list-group-item:focus  {
+	 background-color: #b9e0fa;
+	 border-color: #52a4c7;
+ }
+ .sideMenu-category {
+	 font-weight: 700;
+ }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+ /* Title of Component
+ **********************/
+
+
+
+/*--------------------------------------------------------------
+If no grid support, limit width to 50em and center align
+--------------------------------------------------------------*/
+@supports not (display: grid) {
+	.site {
+		max-width: 50em;
+		margin: 0 auto;
+	}
 }
