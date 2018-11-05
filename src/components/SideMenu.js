@@ -1,24 +1,17 @@
 import React from 'react';
+import { ListGroup } from 'reactstrap';
 import ListItem from './ListItem';
-import { 
-    ListGroup, } from 'reactstrap';
 
-const SideMenu = ({categories, articles}) => {
+const SideMenu = ({ categories }) => {
+  const list_categories = categories.map(category => (
+    <ListItem category={category.category} key={category.id} />
+  ));
 
-    const list_categories = categories.map(category =>  
-        <ListItem 
-        category={category.category}
-        key={category.id} />
-        );
-
-        
-    return (
-        <div>
-        <ListGroup>
-          { list_categories }
-        </ListGroup>
-        <p />
+  return (
+    <div>
+      <ListGroup>{list_categories}</ListGroup>
+      <p />
     </div>
-    );
-}
+  );
+};
 export default SideMenu;
