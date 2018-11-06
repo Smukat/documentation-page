@@ -1,16 +1,12 @@
 import React from 'react';
-import { 
-    ListGroupItem,
-    ListGroup, } from 'reactstrap';
+import {
+  ListGroupItem,
+  ListGroup, } from 'reactstrap';
 
 const ListItem = (props) => {
-    return (
-        <div>
-            <ListGroupItem className="sideMenu-category"tag="a" href="#" action>{props.category}</ListGroupItem>
-        
-        </div>
-       
-    );
+  return (
+    <ListGroupItem className="sideMenu-category" tag="a" href="#" action onClick={() => {props.onClick(props.key)}}>{props.category}</ListGroupItem>
+  );
 }
 
 export default ListItem;
