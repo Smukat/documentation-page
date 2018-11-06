@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 import data from './data/data.json';
-import Header from './components/Header.jsx';
-import SideMenu from './components/SideMenu.jsx';
+import Header from './components/Header';
+import SideMenu from './components/SideMenu';
 import Main from './components/Main';
 import './App.css';
 
@@ -45,7 +45,7 @@ class App extends Component {
         <Header categories={categories} />
         <div className="main-wrapper">
           <SideMenu categories={categories} onChange={this.updateActiveCategory} />
-          <Main articles={articles} />
+          <Main articles={articles} categories={categories} />
         </div>
       </div>
     );

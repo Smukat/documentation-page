@@ -1,10 +1,11 @@
 import React from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import PropTypes from 'prop-types';
-import Article from './Article.jsx';
+import Article from './Article';
+import MainHeader from './MainHeader';
 // import { github } from 'react-syntax-highlighter/styles/hljs';
 
-const Main = ({ articles }) => {
+const Main = ({ articles, categories }) => {
 	const article = Object.values(articles).map(article => (
 		<Article
 			title={article.title}
@@ -13,8 +14,14 @@ const Main = ({ articles }) => {
 			syntax={article.syntax} />
 	));
 
+	const header = Object.values(categories).map(category => (
+		<MainHeader category={category.category}/>
+	));
+
+
 	return (
 		<main id="content">
+			{header}
 			{article}
 		</main>
 	);
@@ -23,6 +30,7 @@ const Main = ({ articles }) => {
 
 Main.propTypes = {
 	articles: PropTypes.arrayOf(PropTypes.object).isRequired,
+	categories: PropTypes.array.isRequired,
 };
 
 export default Main;

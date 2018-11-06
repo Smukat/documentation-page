@@ -25,7 +25,7 @@ const Article = ({ title, description, example, syntax }) => {
         {parameters}
         <h3 className="article-subtitle">Return Value:</h3>
         <p>{syntax.return}</p>
-        <Button outline color="primary"><a href={syntax.link} target="_blank" rel="noopener noreferrer">Learn More</a></Button>{' '}
+        <Button outline color="link"><a className="learnMore-button" href={syntax.link} target="_blank" rel="noopener noreferrer">Learn More</a></Button>{' '}
 
       </div>
     </article>
