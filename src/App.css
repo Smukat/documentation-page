@@ -54,9 +54,14 @@ General styles
 	color: #3d7891;
 }
 
- /* Title of Component
+ /* Footer
  **********************/
-
+.footer {
+	text-align: center;
+	color: #52a4c7;
+	text-decoration: none;
+	padding: 1.5em;
+}
 
 
 
@@ -98,9 +103,15 @@ CSS Grid layout for wider screens, when browser supports grid:
 	.sideMenu {
 		display: block;
 	}
-	/* Bigger Screens */
+
+	/* Footer
+	**********************/
+	.footer {
+		grid-column-start: 2;
+	}
 }
 
+	/* Bigger Screens */
 	@media screen and (min-width: 65em) {
 		.site {
 			/*GRID*/

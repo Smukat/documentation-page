@@ -34,7 +34,7 @@ export default class CustomNavbar extends React.Component {
     return (
       <div>
         <Navbar color="light" light expand="md">
-          <NavbarBrand href="#">{title}</NavbarBrand>
+          <NavbarBrand href="https://smukat.github.io/documentation-page/">{title}</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>

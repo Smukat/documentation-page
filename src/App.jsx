@@ -5,6 +5,7 @@ import data from './data/data.json';
 import Header from './components/Header';
 import SideMenu from './components/SideMenu';
 import Main from './components/Main';
+import Footer from './components/Footer';
 import './App.css';
 
 
@@ -60,6 +61,7 @@ class App extends Component {
         <div className="main-wrapper">
           <SideMenu categories={categoriesName} onChange={this.updateActiveCategory} />
           <Main articles={articles} section={sectionTitle} />
+          <Footer />
         </div>
       </div>
     );
