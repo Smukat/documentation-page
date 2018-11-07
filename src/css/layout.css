@@ -8,14 +8,14 @@ CSS Grid layout for wider screens, when browser supports grid:
 			display: grid
 		}
 
-	/* App 
+	/* App
 	 **********************/
 	.main-wrapper {
 		display: grid;
-		grid-template-columns: 15em 1fr; 
+		grid-template-columns: 15em 1fr;
 	}
 	}
-	/* Article 
+	/* Article
 	 **********************/
 	.article {
 		margin-left: 1em;

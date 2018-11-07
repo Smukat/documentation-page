@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const MainHeader = ({ category }) => (
+const MainHeader = ({ section }) => (
   <div className="mainHeader-style">
-    <h2>{category}</h2>
+    <h2 className="mainHeader">{section}</h2>
   </div>
 );
 
 MainHeader.propTypes = {
-  category: PropTypes.string.isRequired,
+  section: PropTypes.string.isRequired,
 };
 export default MainHeader;

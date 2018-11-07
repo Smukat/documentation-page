@@ -34,12 +34,12 @@ export default class CustomNavbar extends React.Component {
       <div>
         <Navbar color="light" light expand="md">
           <NavbarBrand href="/">{title}</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
+          {/* <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
               {navbarItems}
             </Nav>
-          </Collapse>
+          </Collapse> */}
         </Navbar>
       </div>
     );

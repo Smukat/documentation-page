@@ -9,7 +9,7 @@ General styles
 --------------------------------------------------------------*/
 
 
-/* SideMenu 
+/* SideMenu
  **********************/
  a.list-group-item-action.list-group-item:hover,
  a.list-group-item-action.list-group-item:focus  {
@@ -20,7 +20,18 @@ General styles
 	 font-weight: 700;
  }
 
- /* Article 
+ /* Main
+ **********************/
+.mainHeader-style {
+	background-color: #f5f9fa;
+}
+.mainHeader {
+	font-size: 2.2rem;
+	font-weight: 600;
+	padding: 1em;
+}
+
+ /* Article
  **********************/
  .article {
 	 padding: 1em;

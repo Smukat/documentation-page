@@ -4,9 +4,10 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { Button } from 'reactstrap';
 import Parameters from './Parameters.jsx';
 
-const Article = ({ title, description, example, syntax }) => {
+const Article = ({ title, description, example, syntax}) => {
   const parameters = Object.values(syntax.parameters).map(parameter => (
     <Parameters
+      key={parameter.id}
       name={parameter.name}
       explanation={parameter.explanation}
       example={parameter.example}

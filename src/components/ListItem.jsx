@@ -5,7 +5,7 @@ import {
 } from 'reactstrap';
 
 const ListItem = ({ category, id, onClick }) => (
-  <ListGroupItem className="sideMenu-category" tag="a" href="#" action onClick={() => { onClick(id)}}>{category}</ListGroupItem>
+  <ListGroupItem className="sideMenu-category" tag="a" href="#" action onClick={() => { onClick(id, -1)}}>{category}</ListGroupItem>
 );
 
 ListItem.propTypes = {
