@@ -21,25 +21,26 @@ export default class CustomNavbar extends React.Component {
   }
 
   render() {
+
     // Destructuring:
-    const { title, categories } = this.props;
+    const { title, categories, onChange } = this.props;
     const { isOpen } = this.state;
 
     // Create a navbar-item per each category that exists.
     const navbarItems = categories.map(category => (
-      <NavbarItem category={category.category} key={category.id} />
+      <NavbarItem category={category.category} key={category.id} onChange={onChange} id={category.id} />
     ));
 
     return (
       <div>
         <Navbar color="light" light expand="md">
           <NavbarBrand href="/">{title}</NavbarBrand>
-          {/* <NavbarToggler onClick={this.toggle} />
+          <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
               {navbarItems}
             </Nav>
-          </Collapse> */}
+          </Collapse>
         </Navbar>
       </div>
     );
@@ -48,4 +49,5 @@ export default class CustomNavbar extends React.Component {
 CustomNavbar.propTypes = {
   title: PropTypes.string.isRequired,
   categories: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onChange: PropTypes.func.isRequired,
 };

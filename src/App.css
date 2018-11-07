@@ -1,7 +1,6 @@
 /* Components */
 @import url("css/reset.css");
 @import url("css/accessibility.css");
-@import url("css/layout.css");
 @import url("css/typography.css");
 
 /*--------------------------------------------------------------
@@ -11,11 +10,16 @@ General styles
 
 /* SideMenu
  **********************/
+.sideMenu {
+	display: none;
+}
+
  a.list-group-item-action.list-group-item:hover,
  a.list-group-item-action.list-group-item:focus  {
 	 background-color: #b9e0fa;
 	 border-color: #52a4c7;
  }
+
  .sideMenu-category {
 	 font-weight: 700;
  }
@@ -49,8 +53,6 @@ General styles
 	color: #3d7891;
 }
 
-
-
  /* Title of Component
  **********************/
 
@@ -65,5 +67,42 @@ If no grid support, limit width to 50em and center align
 	.site {
 		max-width: 50em;
 		margin: 0 auto;
+	}
+}
+
+/*--------------------------------------------------------------
+CSS Grid layout for wider screens, when browser supports grid:
+--------------------------------------------------------------*/
+@supports (grid-area: auto) {
+	@media screen and (min-width: 50em) {
+		.site {
+			max-width: none;
+			display: grid
+		}
+
+	/* App
+	 **********************/
+	.main-wrapper {
+		display: grid;
+		grid-template-columns: 15em 1fr;
+	}
+	/* Article
+	 **********************/
+	.article {
+		margin-left: 1em;
+	}
+
+		/* SideMenu
+	**********************/
+	.sideMenu {
+		display: block;
+	}
+	/* Bigger Screens */
+}
+
+	@media screen and (min-width: 65em) {
+		.site {
+			/*GRID*/
+		}
 	}
 }

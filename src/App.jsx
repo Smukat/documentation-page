@@ -17,22 +17,25 @@ class App extends Component {
     this.state = {
       data,
       active_category_id: -1,
-      active_article_id: -1
+      active_article_id: -1,
     };
     this.updateActiveCategory = this.updateActiveCategory.bind(this);
   }
   // It returns an array of all the articles found in {data} json.
+
   getAllArticles() {
     const articles = Object.values(this.state.data).map(object => (
       object.articles
     ));
     return articles.reduce((accumulator, currentValue) => accumulator.concat(currentValue), []);
   }
-  //Using the SideMenu or the Navbar buttons, update the {active_category_id}
+
+  // Using the SideMenu or the Navbar buttons, update the {active_category_id}
+
   updateActiveCategory(category_id, article_id) {
     this.setState({
       active_category_id: category_id,
-      active_article_id: article_id
+      active_article_id: article_id,
     });
   }
 
@@ -53,7 +56,7 @@ class App extends Component {
 
     return (
       <div>
-        <Header categories={categoriesName} />
+        <Header categories={categoriesName} onChange={this.updateActiveCategory} />
         <div className="main-wrapper">
           <SideMenu categories={categoriesName} onChange={this.updateActiveCategory} />
           <Main articles={articles} section={sectionTitle} />

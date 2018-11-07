@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { Button } from 'reactstrap';
-import Parameters from './Parameters.jsx';
+import Parameters from './Parameters';
 
-const Article = ({ title, description, example, syntax}) => {
+const Article = ({
+  title, description, example, syntax,
+}) => {
   const parameters = Object.values(syntax.parameters).map(parameter => (
     <Parameters
       key={parameter.id}
@@ -36,8 +38,7 @@ const Article = ({ title, description, example, syntax}) => {
 Article.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  example: PropTypes.string,
-  syntax: PropTypes.object.isRequired,
+  example: PropTypes.string.isRequired,
 
 };
 export default Article;

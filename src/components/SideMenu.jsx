@@ -1,15 +1,13 @@
 import React from 'react';
 import { ListGroup } from 'reactstrap';
+import PropTypes from 'prop-types';
 import ListItem from './ListItem.jsx';
 import Subcategory from './Subcategory';
-import Article from './Article.jsx';
 
 const SideMenu = ({ categories, onChange }) => {
-  console.log(categories);
 
-  //Create a <ListItem> component for each {category}
-  const list_categories = categories.map((category) => {
-    return (
+  // Create a <ListItem> component for each {category}
+  const list_categories = categories.map(category => (
       <div key={category.id}>
         <ListItem
           category={category.category}
@@ -20,14 +18,18 @@ const SideMenu = ({ categories, onChange }) => {
           <Subcategory name={article.title} key={article.id} category_id={category.id} id={article.id} onClick={onChange} />
         ))}
       </div>
-  );
-});
+  ));
 
   return (
-    <aside>
+    <aside className="sideMenu">
       <ListGroup>{list_categories}</ListGroup>
     </aside>
   );
 };
 
+SideMenu.propTypes = {
+  categories: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onChange: PropTypes.func.isRequired,
+
+};
 export default SideMenu;
