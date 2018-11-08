@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 import data from './data/data.json';
+import { Provider } from './components/Context/indexContext.jsx';
 import Header from './components/Header';
 import SideMenu from './components/SideMenu';
 import Main from './components/Main';
@@ -41,6 +42,7 @@ class App extends Component {
   }
 
   render() {
+
     // Destructuring
     const { data, active_category_id, active_article_id } = this.state;
 
@@ -56,14 +58,21 @@ class App extends Component {
       (active_article_id === -1) ? data[active_category_id].articles : data[active_category_id].articles.filter(article => article.id === active_article_id);
 
     return (
-      <div>
-        <Header categories={categoriesName} onChange={this.updateActiveCategory} />
-        <div className="main-wrapper">
-          <SideMenu categories={categoriesName} onChange={this.updateActiveCategory} />
-          <Main articles={articles} section={sectionTitle} />
-          <Footer />
+      <Provider value={{
+        categoriesName: categoriesName,
+        actions: {
+          updateActiveCategory: this.updateActiveCategory,
+        } 
+      }}>
+        <div>
+          <Header />
+          <div className="main-wrapper">
+            <SideMenu categories={categoriesName} />
+            <Main articles={articles} section={sectionTitle} />
+            <Footer />
+          </div>
         </div>
-      </div>
+      </Provider> 
     );
   }
 }

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {
   Collapse, Navbar, NavbarToggler, NavbarBrand, Nav,
 } from 'reactstrap';
+import { Consumer } from './Context/indexContext.jsx';
 import NavbarItem from './NavbarItem.jsx';
 
 export default class CustomNavbar extends React.Component {
@@ -21,15 +22,9 @@ export default class CustomNavbar extends React.Component {
   }
 
   render() {
-
     // Destructuring:
-    const { title, categories, onChange } = this.props;
+    const { title} = this.props;
     const { isOpen } = this.state;
-
-    // Create a navbar-item per each category that exists.
-    const navbarItems = categories.map(category => (
-      <NavbarItem category={category.category} key={category.id} onChange={onChange} id={category.id} />
-    ));
 
     return (
       <div>
@@ -38,7 +33,13 @@ export default class CustomNavbar extends React.Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              {navbarItems}
+              <Consumer>
+                { ({ categoriesName }) => (
+                  categoriesName.map((category, index) => (
+                    <NavbarItem key={category.id} index={index} />
+                  ))
+                )}
+              </Consumer>
             </Nav>
           </Collapse>
         </Navbar>
@@ -48,6 +49,5 @@ export default class CustomNavbar extends React.Component {
 }
 CustomNavbar.propTypes = {
   title: PropTypes.string.isRequired,
-  categories: PropTypes.arrayOf(PropTypes.object).isRequired,
-  onChange: PropTypes.func.isRequired,
 };
+
